@@ -14,7 +14,6 @@ export default class App extends Component {
     this.submit = this.submit.bind(this);
   }
 
-
   submit() {
     
   }
@@ -24,9 +23,20 @@ export default class App extends Component {
   render() {
     return (
       <div className = "App">
-        <Input />
+        <form>
+            <label>Bill Amount:</label>
+            <input type="number" name="amount" id="bill"></input>
+            <br></br>
+            <label>Tip Percentage:</label>
+            <input type="number" name="tip" id="tip"></input>
+            <input type="submit" value="Calculate Tip" ></input>
+          </form>
+
+
         <Footer/>
       </div>
     );
   }
 }
+
+
