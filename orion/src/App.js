@@ -1,29 +1,32 @@
 import './App.css';
 import Footer from '../src/Components/Footer';
+import Input from './Components/Input'
+import React, { Component } from 'react'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      billAmount: 0.0,
+      tipPercentage: 0.0
+    }
+
+    this.submit = this.submit.bind(this);
+  }
 
 
-function App() {
-  return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    <div className = "App">
-      <Footer/>
-    </div>
-  );
+  submit() {
+    
+  }
+
+
+
+  render() {
+    return (
+      <div className = "App">
+        <Input />
+        <Footer/>
+      </div>
+    );
+  }
 }
-
-export default App;
