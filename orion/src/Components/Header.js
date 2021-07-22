@@ -19,12 +19,12 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div>
-                <img src={logo} 
+            <div className="header">
+                <img className="insideHeader" src={logo} 
                        alt='Logo' width='110' height = '88'></img>
-                <h1>Tip Calculator</h1>
-                <p>{this.state.count}</p>
-                <button onClick={this.increase_count}>increase count</button>
+                <h1 className="insideHeader">Tip Calculator</h1>
+                <button className="insideHeader" onClick={this.increase_count}>increase count</button>
+                <p className="insideHeader">{this.state.count}</p>
             </div>
         )
     }
