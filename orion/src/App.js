@@ -1,5 +1,7 @@
 import './App.css';
 import Footer from '../src/Components/Footer';
+import Input from './Components/Input'
+import Header from './Components/Header'
 import React, { Component } from 'react'
 
 export default class App extends Component {
@@ -56,8 +58,6 @@ export default class App extends Component {
             <h3>20%: ${this.state.total * .2}</h3>
             <h3>25%: ${this.state.total * .25}</h3>
         </div>
-
-
         <Footer/>
       </div>
     );
