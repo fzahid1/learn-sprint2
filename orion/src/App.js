@@ -4,52 +4,63 @@ import Footer from "../src/Components/Footer";
 import Header from "./Components/Header";
 import TipCalculator from "./Components/TipCalculator";
 import Interest from "./Components/Interest";
-import CurrencyCalculator from './Components/CurrencyCalculator';
-
+import CurrencyCalculator from "./Components/CurrencyCalculator";
+import Calculator from "./Components/Calculator";
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-      page: "tip calculator"
-    }
-    this.switch_interest_calculator = this.switch_interest_calculator.bind(this)
-    this.switch_tip_calculator = this.switch_tip_calculator.bind(this)
-    this.switch_currency_exchange = this.switch_currency_exchange.bind(this)
+      page: "tip calculator",
+    };
+    this.switch_interest_calculator =
+      this.switch_interest_calculator.bind(this);
+    this.switch_tip_calculator = this.switch_tip_calculator.bind(this);
+    this.switch_currency_exchange = this.switch_currency_exchange.bind(this);
+    this.switch_simple_calculator = this.switch_simple_calculator.bind(this);
   }
 
-switch_interest_calculator () {
-  this.setState({page: 'interest calculator'})
-}
+  switch_interest_calculator() {
+    this.setState({ page: "interest calculator" });
+  }
 
-switch_tip_calculator () {
-  this.setState({page: 'tip calculator'})
-}
+  switch_tip_calculator() {
+    this.setState({ page: "tip calculator" });
+  }
 
-switch_currency_exchange () {
-  this.setState({page: 'currency exchange'})
-}
- 
+  switch_currency_exchange() {
+    this.setState({ page: "currency exchange" });
+  }
+
+  switch_simple_calculator() {
+    this.setState({ page: "simple calculator" });
+  }
+
   render() {
     const page = this.state.page;
 
     let calc;
     if (page === "tip calculator") {
-      calc = <TipCalculator />
+      calc = <TipCalculator />;
     } else if (page === "interest calculator") {
-      calc = <Interest />
+      calc = <Interest />;
+    } else if (page === "currency exchange") {
+      calc = <CurrencyCalculator />;
     } else {
-      calc = <CurrencyCalculator />
+      calc = <Calculator />;
     }
 
     return (
-      <div className = "App">
-        <Header tipCalculator = {this.switch_tip_calculator} 
-          interestCalculator = {this.switch_interest_calculator} 
-          currencyExchange = {this.switch_currency_exchange}/>
+      <div className="App">
+        <Header
+          tipCalculator={this.switch_tip_calculator}
+          interestCalculator={this.switch_interest_calculator}
+          currencyExchange={this.switch_currency_exchange}
+          simpleCalculator={this.switch_simple_calculator}
+        />
         {calc}
-        <Footer/>
+        <Footer />
       </div>
     );
   }

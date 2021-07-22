@@ -60,3 +60,27 @@ input {
   margin-left: 20em;
   margin-right: 20em;
 }
+
+.calcButtons button {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  font-weight: 800;
+}
+
+.display {
+  height: 25px;
+  font-weight: bold;
+  background-color: white;
+  margin-left: 1.23em;
+  margin-right: 1.23em;
+  /* width: 300px; */
+}
+
+.calcButtons {
+  border: solid black;
+  margin: auto;
+  background-color: gray;
+ padding-bottom: 2em;
+ width: 300px;
+}
