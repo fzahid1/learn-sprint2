@@ -38,6 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <div className = "App">
+        <Header />
         <form onSubmit={this.calcTip}>
             <div>
               <h1>Ally Tip Calulator</h1>
