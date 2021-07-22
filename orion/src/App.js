@@ -40,9 +40,6 @@ export default class App extends Component {
       <div className = "App">
         <Header />
         <form onSubmit={this.calcTip}>
-            <div>
-              <h1>Ally Tip Calulator</h1>
-            </div>
             <label>Bill Amount:</label>
             <input type="text" value = {this.state.total} onChange= {this.handleTotal} name="amount" id="bill"></input>
             <br></br>
