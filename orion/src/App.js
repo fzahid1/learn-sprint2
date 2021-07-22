@@ -1,9 +1,11 @@
 import "./App.css";
+import React, { Component } from "react";
 import Footer from "../src/Components/Footer";
 import Header from "./Components/Header";
 import TipCalculator from "./Components/TipCalculator";
-import React, { Component } from "react";
 import Interest from "./Components/Interest";
+import CurrencyCalculator from './Components/CurrencyCalculator';
+
 
 export default class App extends Component {
   constructor(props) {
