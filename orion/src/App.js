@@ -3,6 +3,7 @@ import Footer from '../src/Components/Footer';
 import Header from './Components/Header'
 import TipCalculator from './Components/TipCalculator';
 import React, { Component } from 'react'
+import CurrencyCalculator from './Components/CurrencyCalculator';
 
 export default class App extends Component {
   state = {
