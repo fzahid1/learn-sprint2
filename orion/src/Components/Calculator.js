@@ -132,15 +132,15 @@ export default class Calculator extends Component {
             0
           </button>
 
-          <button name="-" onClick={this.handleOpClick}>
-            -
-          </button>
+          <button onClick={this.handleClear}>clear</button>
 
           <button type="submit" onClick={this.handleEqualsClick}>
             =
           </button>
 
-          <button onClick={this.handleClear}>clear</button>
+          <button name="-" onClick={this.handleOpClick}>
+            -
+          </button>
         </div>
       </div>
     );
