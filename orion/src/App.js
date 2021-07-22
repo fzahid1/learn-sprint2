@@ -15,7 +15,6 @@ export default class App extends Component {
     this.submit = this.submit.bind(this);
   }
 
-
   submit() {
     
   }
@@ -25,10 +24,10 @@ export default class App extends Component {
   render() {
     return (
       <div className = "App">
-        <Header/>
-        <Input />
         <Footer/>
       </div>
     );
   }
 }
+
+
