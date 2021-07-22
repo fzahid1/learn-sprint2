@@ -45,6 +45,7 @@ export default class Interest extends Component {
   render() {
     return (
       <div>
+        <h1>Interest Calculator</h1>
         <form>
           <div className="block">
             <div>

@@ -40,6 +40,7 @@ export default class CurrencyCalculator extends Component {
     render() {
         return (
             <div>
+              <h1>Currency Exchange</h1>
         <form onSubmit={this.calcConversion}>
             <label>Amount: $</label>
             <input type="text" value = {this.state.amount} onChange= {this.handleAmount} name="amount" id="bill"></input>

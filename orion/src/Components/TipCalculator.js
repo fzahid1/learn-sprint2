@@ -34,6 +34,7 @@ export default class TipCalculator extends Component {
   render() {
     return (
       <div>
+        <h1>Tip Calculator</h1>
         <form onSubmit={this.calcTip}>
             <label>Bill Amount: $</label>
             <input type="text" value = {this.state.total} onChange= {this.handleTotal} name="amount" id="bill"></input>

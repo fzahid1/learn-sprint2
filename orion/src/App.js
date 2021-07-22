@@ -38,9 +38,9 @@ switch_currency_exchange () {
     if (page === "tip calculator") {
       calc = <TipCalculator />
     } else if (page === "interest calculator") {
-      console.log('clicked interest calculator')
+      calc = <Interest />
     } else {
-      console.log('clicked currency exchange')
+      calc = <CurrencyCalculator />
     }
 
     return (
