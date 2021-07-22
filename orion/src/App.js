@@ -1,6 +1,7 @@
 import './App.css';
 import Footer from '../src/Components/Footer';
 import Input from './Components/Input'
+import Header from './Components/Header'
 import React, { Component } from 'react'
 
 export default class App extends Component {
@@ -24,6 +25,7 @@ export default class App extends Component {
   render() {
     return (
       <div className = "App">
+        <Header/>
         <Input />
         <Footer/>
       </div>
