@@ -16,14 +16,20 @@ export default class Interest extends Component {
     this.setState({ time: e.target.value });
   };
 
+  //handler for the getting the specfic time from input
+  handleGetSpecific = (e) => {
+    this.setState({ specificTime: e.target.value });
+  };
+
   //function for calculating and setting the total balance
   submitAmount = (e) => {
     e.preventDefault();
-    let starting = this.state.startingBalance;
-    let time = this.state.time;
-    let ir = (this.state.interestRate / 100).toFixed(2);
-    let totalInterest = starting * time * ir;
-    let total = parseInt(starting) + parseInt(totalInterest);
+    const starting = this.state.startingBalance;
+    const time = this.state.time;
+    const ir = (this.state.interestRate / 100).toFixed(2);
+    const specificTime = this.state.specificTime;
+    const totalInterest = starting * (time / specificTime) * ir;
+    const total = parseInt(starting) + parseInt(totalInterest);
     console.log(total, starting, time, ir);
     this.setState({ totalInterest: totalInterest, totalBalance: total });
   };
@@ -34,6 +40,7 @@ export default class Interest extends Component {
     totalBalance: "",
     time: "",
     totalInterest: "",
+    specificTime: "12",
   };
   render() {
     return (
@@ -46,7 +53,7 @@ export default class Interest extends Component {
                 type="number"
                 name="startingAmount"
                 onChange={this.handleGetStarting}
-                style={{ width: "176px" }}
+                style={{ width: "190px" }}
               />
             </div>
             <div className="whitespace" />
@@ -57,7 +64,7 @@ export default class Interest extends Component {
                 type="percentage"
                 onChange={this.handleGetInterestRate}
                 name="interestRate"
-                style={{ width: "176px" }}
+                style={{ width: "190px" }}
               />
             </div>
             <div className="whitespace" />
@@ -71,13 +78,18 @@ export default class Interest extends Component {
                 name="Time"
                 style={{ width: "80px" }}
               />
-              <input
+              <select
                 className=".input-holder"
                 type="number"
-                onChange={this.handleGetTime}
+                onChange={this.handleGetSpecific}
                 name="Time"
-                style={{ width: "80px" }}
-              />
+                style={{ width: "110px" }}
+              >
+                <option value="12">Months</option>
+                <option value="4">Quarters</option>
+                <option value="2">Semi-annually</option>
+                <option value="1">Annually</option>
+              </select>
             </div>
           </div>
           <div>
