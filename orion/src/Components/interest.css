@@ -1,0 +1,17 @@
+.block{
+display: inline-block;
+text-align: right;
+padding-top: 2em;
+}
+
+.Submit{
+    cursor: pointer;
+    padding: 1em 2em;
+    background-color: #39375B;
+    color: white;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  .whitespace{
+    padding-top:5px
+  }
