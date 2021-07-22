@@ -5,9 +5,29 @@ import TipCalculator from './Components/TipCalculator';
 import React, { Component } from 'react'
 
 export default class App extends Component {
-  state = {
-    page: "TipCalculator"
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      page: "tip calculator"
+    }
+    this.switch_interest_calculator = this.switch_interest_calculator.bind(this)
+    this.switch_tip_calculator = this.switch_tip_calculator.bind(this)
+    this.switch_currency_exchange = this.switch_currency_exchange.bind(this)
   }
+
+switch_interest_calculator () {
+  this.setState({page: 'interest calculator'})
+}
+
+switch_tip_calculator () {
+  this.setState({page: 'tip calculator'})
+}
+
+switch_currency_exchange () {
+  this.setState({page: 'currency exchange'})
+}
+  
 
 
   render() {
@@ -15,13 +35,19 @@ export default class App extends Component {
     const page = this.state.page;
 
     let calc;
-    if (page === "TipCalculator") {
+    if (page === "tip calculator") {
       calc = <TipCalculator />
+    } else if (page === "interest calculator") {
+      console.log('clicked interest calculator')
+    } else {
+      console.log('clicked currency exchange')
     }
 
     return (
       <div className = "App">
-        <Header />
+        <Header tipCalculator = {this.switch_tip_calculator} 
+          interestCalculator = {this.switch_interest_calculator} 
+          currencyExchange = {this.switch_currency_exchange}/>
         {calc}
         <Footer/>
       </div>

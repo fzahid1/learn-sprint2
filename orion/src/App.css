@@ -22,6 +22,15 @@
 .insideHeader{
   display: inline-block;
   margin-left: 2em;
+  cursor: pointer;
+  padding: 1em 2em;
+  background-color: #F8C9DB;
+  color: black;
+  border-radius: 8px;
+}
+
+.insideLogo{
+  display: inline-block;
 }
 
 form {
