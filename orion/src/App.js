@@ -1,8 +1,9 @@
-import './App.css';
-import Footer from '../src/Components/Footer';
-import Header from './Components/Header'
-import TipCalculator from './Components/TipCalculator';
-import React, { Component } from 'react'
+import "./App.css";
+import Footer from "../src/Components/Footer";
+import Header from "./Components/Header";
+import TipCalculator from "./Components/TipCalculator";
+import React, { Component } from "react";
+import Interest from "./Components/Interest";
 
 export default class App extends Component {
   constructor(props) {
@@ -27,11 +28,8 @@ switch_tip_calculator () {
 switch_currency_exchange () {
   this.setState({page: 'currency exchange'})
 }
-  
-
-
+ 
   render() {
-
     const page = this.state.page;
 
     let calc;
@@ -54,5 +52,3 @@ switch_currency_exchange () {
     );
   }
 }
-
-
