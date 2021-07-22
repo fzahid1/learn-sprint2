@@ -57,8 +57,8 @@ export default class Calculator extends Component {
   };
 
   doMath = (input1, input2, operator) => {
-    let firstNum = parseInt(input1);
-    let secondNum = parseInt(input2);
+    let firstNum = parseFloat(input1);
+    let secondNum = parseFloat(input2);
     switch (operator) {
       case "+":
         return firstNum + secondNum;
