@@ -10,15 +10,10 @@ export default class Footer extends Component {
   }
 
   componentDidMount() {
-    axios.get("https://dog-api.kinduff.com/api/facts").then(
-      (res) => {
-        const doggoFacts = res.facts;
-        this.setState({ doggoFact: doggoFacts });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    fetch("https://dog-api.kinduff.com/api/facts")
+      .then((response) => response.json())
+      .then((resp) => this.setState({ doggoFact: resp["facts"] }));
+    console.log(this.doggoFact);
   }
 
   render() {
