@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+let clearedState = { countryCode: "eur", final: "", finalUnit: "", rate: "" };
 export default class CurrencyCalculator extends Component {
   handleAmount = (event) => {
     this.setState({
@@ -7,10 +8,15 @@ export default class CurrencyCalculator extends Component {
     });
   };
   handleCountryCode = (event) => {
-    this.setState({
-      countryCode: event.target.value,
-      finalUnit: event.target.options[event.target.selectedIndex].text,
-    });
+    if (event.target.value !== "") {
+      if (this.state.finalUnit !== "") {
+        this.setState(clearedState);
+      }
+      this.setState({
+        countryCode: event.target.value,
+        finalUnit: event.target.options[event.target.selectedIndex].text,
+      });
+    }
   };
 
   calcConversion = (event) => {
@@ -21,25 +27,17 @@ export default class CurrencyCalculator extends Component {
         ".json"
     )
       .then((response) => response.json())
-      .then((resp) => this.setState({ rate: resp[this.state.countryCode] }));
-    let conversion = this.state.amount * this.state.rate;
-    this.setState({
-      final: conversion,
-    });
-  };
-
-  euros = (event) => {
-    event.preventDefault();
-    this.setState({
-      finalUnit: "Euros",
-    });
+      .then((resp) => this.setState({ rate: resp[this.state.countryCode] }))
+      .then(() =>
+        this.setState({ final: this.state.amount * this.state.rate })
+      );
   };
 
   state = {
     amount: "",
     countryCode: "eur",
-    final: "0",
-    finalUnit: "Euros",
+    final: "",
+    finalUnit: "",
     rate: "",
   };
 
@@ -48,7 +46,7 @@ export default class CurrencyCalculator extends Component {
       <div>
         <h1>Currency Exchange</h1>
         <form onSubmit={this.calcConversion}>
-          <label>Amount: $</label>
+          <label>From: $USD </label>
           <input
             type="text"
             value={this.state.amount}
@@ -57,26 +55,23 @@ export default class CurrencyCalculator extends Component {
             id="bill"
           ></input>
           <br></br>
-          <label>From: $USD</label>
-          <br></br>
-          <label>To:</label>
-          <select
-            value={this.state.rate}
-            name={this.state.finalUnit}
-            onChange={this.handleCountryCode}
-          >
+          <label>To: </label>
+          <select onChange={this.handleCountryCode}>
+            <option disabled selected name="selected" value="select">
+              --Select Currency--
+            </option>
             <option name="Euros" value="eur">
               Euros
             </option>
-            <option name="Pesos" value="20.21">
-              Pesos
+            <option name="Mexican Pesos" value="mxn">
+              Mexican Pesos
             </option>
-            <option name="Pounds" value=".73">
+            <option name="Pounds" value="gbp">
               Pounds
             </option>
           </select>
           <br></br>
-          <input className="Submit" type="submit" value="Calculate Tip"></input>
+          <input className="Submit" type="submit" value="Convert"></input>
         </form>
         <p className="output">
           {this.state.final} {this.state.finalUnit}
