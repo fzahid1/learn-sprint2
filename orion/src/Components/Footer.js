@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+const axios = require("axios");
 
 export default class Footer extends Component {
   constructor(props) {
@@ -9,18 +10,12 @@ export default class Footer extends Component {
   }
 
   componentDidMount() {
-    const doggofacts = "https://dog-api.kinduff.com/api/facts";
-    fetch(doggofacts)
-      .then((response) => response.json())
-      .then(
-        (data) => {
-          console.log("This is your data", data);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    axios.get(`https://dog-api.kinduff.com/api/facts`).then((res) => {
+      const doggoFacts = res.facts;
+      this.setState({ doggoFacts });
+    });
   }
+
   render() {
     return (
       <div className="footer">
