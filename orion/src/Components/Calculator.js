@@ -6,6 +6,7 @@ let emptyState = {
   operator: "",
   result: "",
   display: "",
+  previous: "",
 };
 
 export default class Calculator extends Component {
@@ -14,16 +15,49 @@ export default class Calculator extends Component {
       this.setState({
         input1: this.state.input1 + event.target.name,
         display: this.state.input1 + event.target.name,
+        previous: this.state.input1 + event.target.name,
       });
     } else {
       this.setState({
         input2: this.state.input2 + event.target.name,
         display: this.state.input2 + event.target.name,
+        previous: this.state.input2 + event.target.name,
       });
     }
   };
 
   handleOpClick = (event) => {
+    switch (this.state.previous) {
+      case "+":
+        if (event.target.name === "+") {
+          this.setState({ operator: "+" });
+        } else {
+          this.setState({ operator: event.target.name });
+        }
+        break;
+      case "-":
+        if (event.target.name === "-") {
+          this.setState({ operator: "-" });
+        } else {
+          this.setState({ operator: event.target.name });
+        }
+        break;
+      case "x":
+        if (event.target.name === "x") {
+          this.setState({ operator: "x" });
+        } else {
+          this.setState({ operator: event.target.name });
+        }
+        break;
+      case "%":
+        if (event.target.name === "%") {
+          this.setState({ operator: "%" });
+        } else {
+          this.setState({ operator: event.target.name });
+        }
+        break;
+    }
+
     if (this.state.operator !== "") {
       let answer = this.doMath(
         this.state.input1,
@@ -35,11 +69,13 @@ export default class Calculator extends Component {
         input1: answer,
         operator: event.target.name,
         input2: "",
+        previous: event.target.name,
       });
     } else {
       this.setState({
         operator: event.target.name,
         display: event.target.name,
+        previous: event.target.name,
       });
     }
   };
@@ -53,6 +89,7 @@ export default class Calculator extends Component {
     this.setState({
       result: answer,
       display: answer,
+      previous: "",
     });
   };
 
@@ -82,6 +119,7 @@ export default class Calculator extends Component {
     operator: "",
     result: "",
     display: "",
+    previous: "",
   };
   render() {
     return (
