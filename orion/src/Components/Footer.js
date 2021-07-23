@@ -21,7 +21,7 @@ export default class Footer extends Component {
         <div>
           <h2>Do It Right!</h2>
         </div>
-        <div style={{ paddingBottom: "10px" }}>{this.state.randomFact}</div>
+        <div style={{ paddingBottom: "10px" }}>Random Fact: {this.state.randomFact}</div>
       </div>
     );
   }
